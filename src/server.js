@@ -31,6 +31,13 @@ class Sockets{
             });
             socket.emit('mensaje','Hola cliente');
 
+
+
+            //Reglas para el chat
+
+            
+
+            console.log(io.of('/').sockets.size)
         });
 
 
