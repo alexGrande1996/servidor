@@ -1,0 +1,35 @@
+{
+  "name": "servidor",
+  "version": "1.0.0",
+  "description": "Un sistema para el manejo y gestion de notificacion de cualquier tipo.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "A.L.O",
+
+  "license": "ISC",
+  
+  "dependencies": {
+    "@sequelize/core": "^7.0.0-alpha.10",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "express-validator": "^6.12.1",
+    "inquirer": "^8.1.2",
+    "jsonwebtoken": "^8.5.1",
+    "mariadb": "^2.5.4",
+    "mongoose": "^5.13.3",
+    "mysql2": "^2.2.5",
+    "nodemon": "^2.0.15",
+    "pg": "^8.6.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.6.5",
+    "socket.io": "^4.2.0",
+    "sqlite3": "^5.0.2",
+    "tedious": "^11.4.0"
+  }
+
+}
