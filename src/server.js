@@ -23,21 +23,30 @@ class Sockets{
         });
 
         io.on('connection',(socket)=>{
-            console.log('hola');
+            console.log(`Usuario conectado: ${socket.id}`);
 
             
-            socket.on('mensaje',(data)=>{
-                console.log(data);
+
+                        
+            // Unirse a una habitación
+            socket.on('joinRoom', (room) => {
+                socket.join(room);
+                console.log(`Usuario ${socket.id} se unió a la habitación ${room}`);
             });
-            socket.emit('mensaje','Hola cliente');
+
+            // Enviar un mensaje a una habitación
+            socket.on('sendMessage', (room, message) => {
+                io.to(room).emit('message', message);
+            });
+
+
+            socket.on('enviarMensaje',(mensaje,usuario,canal,hora)=>{
+                io.to(canal).emit('mensaje',usuario,mensaje,hora);
+            });
 
 
 
-            //Reglas para el chat
-
-            
-
-            console.log(io.of('/').sockets.size)
+            console.log(io.of('/').sockets.size);
         });
 
 
@@ -73,7 +82,8 @@ class Sockets{
  
     
     routes(){
-      
+        
+        
         
     }
 
