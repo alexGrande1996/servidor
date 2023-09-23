@@ -1,10 +1,8 @@
 const  express = require('express');
-const {request,response} = require('express');
-const session = require('express-session');
 const cors = require('cors');
 
-const  crypto = require('crypto');
 const { Server } = require('socket.io');
+const database = require('./database/config');
 
 
 class Sockets{
@@ -53,6 +51,7 @@ class Sockets{
         // this.io = require('socket.io')(this.server);
 
         //conectar con la base de datos
+        this.basedatos();
 
         
         //Herramientras de ayuda
@@ -63,6 +62,9 @@ class Sockets{
 
         //rutas
         this.routes();
+
+
+        //database
 
     }
     
@@ -75,16 +77,29 @@ class Sockets{
 
     listen(){
         this.server.listen(this.port,()=>{
-            console.log("Servidor corriendo en el puerto",this.port);
+            console.log(`Servidor corriendo en el puerto: ${this.port}.`);
         });
     }
 
  
     
     routes(){
-        
-        
-        
+        this.app.use('/usuario',require('./routes/usuario'));
+    }
+
+
+    async basedatos(){
+        try{
+            await database.authenticate();
+            console.log('Base de datos conectada.');
+            
+            await database.sync({force:true});
+            console.log('Base de datos actualizada.');
+        }
+        catch(error){
+            console.log(error);
+            console.log('No se logro conectar con la base de datos.');
+        }
     }
 
 
