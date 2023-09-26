@@ -13,6 +13,12 @@ router.get('/crear',
                 validarCampos
             ],
             crear·usuario);
+            
+router.get('/actualizar',
+            [
+                validarCampos
+            ],
+             );
 
 
 module.exports = router;
