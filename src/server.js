@@ -22,10 +22,7 @@ class Sockets{
 
         io.on('connection',(socket)=>{
             console.log(`Usuario conectado: ${socket.id}`);
-
-            
-
-                        
+         
             // Unirse a una habitación
             socket.on('joinRoom', (room) => {
                 socket.join(room);

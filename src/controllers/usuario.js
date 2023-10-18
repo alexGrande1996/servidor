@@ -50,7 +50,7 @@ const crear·usuario = async(req = request, res = response)=>{
 const actualizar·usuario = ()=>{
     try{
         //Parametros 
-        const {columna:} = req.body;
+        const {} = req.body;
 
 
         const user = Usuario.update();
